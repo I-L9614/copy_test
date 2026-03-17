@@ -9,8 +9,8 @@ function App() {
   return (
     <Router>
       <nav className="navbar">
-        <Link to="/">בית</Link>
-        <Link to="/add">הוספת משגר</Link>
+        <Link to="/">Home</Link>
+        <Link to="/add">Add launcher</Link>
       </nav>
 
       <Routes>

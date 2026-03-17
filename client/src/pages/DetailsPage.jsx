@@ -5,23 +5,22 @@ import { getLauncherById } from '../api/launcherService';
 const DetailsPage = () => {
     const { id } = useParams();
     const [launcher, setLauncher] = useState(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         getLauncherById(id).then(setLauncher);
     }, [id]);
 
-    if (!launcher) return <p>טוען נתונים...</p>;
+    if (!launcher) return <p>Loading...</p>;
 
     return (
         <div className="container">
-            <h2>פרטי משגר: {launcher.name}</h2>
+            <h2>Launcher details {launcher.name}</h2>
             <div className="details-card">
-                <p><strong>עיר:</strong> {launcher.city}</p>
-                <p><strong>סוג רקטה:</strong> {launcher.rocketType}</p>
-                <p><strong>קו רוחב (Lat):</strong> {launcher.latitude}</p>
-                <p><strong>קו אורך (Long):</strong> {launcher.longitude}</p>
-                <button onClick={() => navigate('/')}>חזור לרשימה</button>
+                <p><strong>cuty:</strong> {launcher.city}</p>
+                <p><strong>rocket type:</strong> {launcher.rocketType}</p>
+                <p><strong>latitude:(Lat):</strong> {launcher.latitude}</p>
+                <p><strong>longitude:(Long):</strong> {launcher.longitude}</p>
+                <button onClick={() => useNavigate('/')}>back to list</button>
             </div>
         </div>
     );

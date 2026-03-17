@@ -25,48 +25,48 @@ const AddLauncherPage = () => {
         e.preventDefault();
         
         if (!formData.name || !formData.city || !formData.latitude || !formData.longitude) {
-            alert("נא למלא את כל השדות");
+            alert("Please fill in all fields.");
             return;
         }
 
         const success = await createLauncher(formData);
         
         if (success) {
-            alert('המשגר נוסף בהצלחה!');
+            alert('launcher created successfuly');
             navigate('/'); 
         } else {
-            alert('שגיאה בהוספת המשגר. בדוק את השרת.');
+            alert('error in create launcher');
         }
     };
 
     return (
         <div className="container">
-            <h2>הוספת משגר חדש</h2>
+            <h2>Add new launcher</h2>
             <form onSubmit={handleSubmit} className="launcher-form">
                 <div className="form-group">
-                    <label>שם המשגר:</label>
+                    <label>Launcher name</label>
                     <input 
                         type="text" 
                         name="name" 
                         value={formData.name} 
                         onChange={handleChange} 
-                        placeholder="לדוגמה: משגר דרום"
+                        placeholder="exs: yoooo"
                     />
                 </div>
 
                 <div className="form-group">
-                    <label>עיר:</label>
+                    <label>City:</label>
                     <input 
                         type="text" 
                         name="city" 
                         value={formData.city} 
                         onChange={handleChange} 
-                        placeholder="שם העיר"
+                        placeholder="City name"
                     />
                 </div>
 
                 <div className="form-group">
-                    <label>סוג רקטה:</label>
+                    <label>Rocket type:</label>
                     <select name="rocketType" value={formData.rocketType} onChange={handleChange}>
                         <option value="Shahab3">Shahab3</option>
                         <option value="Fetah110">Fetah110</option>
@@ -76,7 +76,7 @@ const AddLauncherPage = () => {
                 </div>
 
                 <div className="form-group">
-                    <label>קו רוחב (Latitude):</label>
+                    <label>Latitude:</label>
                     <input 
                         type="number" 
                         name="latitude" 
@@ -86,7 +86,7 @@ const AddLauncherPage = () => {
                 </div>
 
                 <div className="form-group">
-                    <label>קו אורך (Longitude):</label>
+                    <label>Longitude:</label>
                     <input 
                         type="number" 
                         name="longitude" 
@@ -95,7 +95,7 @@ const AddLauncherPage = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn-submit">שמור משגר</button>
+                <button type="submit" className="btn-submit">Create launcher</button>
             </form>
         </div>
     );
